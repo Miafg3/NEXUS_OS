@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-slate-900 text-slate-100 font-sans antialiased">
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="flex min-h-screen">
+        <!-- 1. BARRA LATERAL (Sidebar) -->
+        <aside class="w-64 bg-slate-950 p-5 border-r border-slate-800 flex-col justify-between hidden md:flex">
+
+            <div>
+                <div class="flex items-center space-x-2 text-emerald-400 font-bold text-xl tracking-wider mb-8">
+                    <span>⚡</span>
+                    <span>NEXUS_OS</span>
+                </div>
+
+                <nav class="space-y-2">
+                    <a href="#" class="flex items-center space-x-3 bg-emerald-500/10 text-emerald-400 px-4 py-2.5 rounded-lg font-medium transition duration-200">
+                        <span>📊</span> <span>Resumen</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 text-slate-400 hover:bg-slate-900 hover:text-slate-200 px-4 py-2.5 rounded-lg transition duration-200">
+                        <span>🛡️</span> <span>Seguridad</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 text-slate-400 hover:bg-slate-900 hover:text-slate-200 px-4 py-2.5 rounded-lg transition duration-200">
+                        <span>⚙️</span> <span>Terminal Config</span>
+                    </a>
+                </nav>
+            </div>
+            
+            <!-- Perfil de usuario abajo en el sidebar -->
+            <div class="border-t border-slate-800 pt-4 flex items-center space-x-3">
+                <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center font-bold text-slate-950">
+                    CC
+                </div>
+
+                <div>
+                    <p class="text-sm font-medium">Clon Clonado</p>
+                    <p class="text-xs text-slate-500">Root Access</p>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- 2. ÁREA DE CONTENIDO PRINCIPAL -->
+        <main class="flex-1 p-6 md:p-10 space-y-8">
+            
+            <!-- Encabezado Superior -->
+            <header class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold tracking-tight">Panel de Operaciones</h1>
+                    <p class="text-slate-400 text-sm">Estado del sistema: <span class="text-emerald-400 animate-pulse font-mono">ONLINE</span></p>
+                </div>
+
+                <button class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold px-4 py-2 rounded-lg text-sm shadow-lg shadow-emerald-500/20 transition-all duration-200">
+                    Desplegar Script
+                </button>
+            </header>
+
+            <!-- CONTENEDOR DE TARJETAS (Grilla responsiva) -->
+            <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Tarjeta 1 -->
+                <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 group">
+                    <div class="flex justify-between items-start">
+                        <span class="text-slate-400 text-sm font-medium">Ataques Bloqueados</span>
+                        <span class="bg-emerald-500/10 text-emerald-400 text-xs px-2 py-1 rounded">Hoy</span>
+                    </div>
+
+                    <p class="text-3xl font-bold mt-2 font-mono tracking-tight group-hover:text-emerald-400 transition-colors">1,432</p>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 hover:border-amber-500/50 transition-all duration-300 group">
+                    <div class="flex justify-between items-start">
+                        <span class="text-slate-400 text-sm font-medium">Uso de CPU</span>
+                        <span class="bg-amber-500/10 text-amber-400 text-xs px-2 py-1 rounded">Vivo</span>
+                    </div>
+
+                    <p class="text-3xl font-bold mt-2 font-mono tracking-tight group-hover:text-amber-400 transition-colors">42.8%</p>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 hover:border-rose-500/50 transition-all duration-300 group">
+                    <div class="flex justify-between items-start">
+                        <span class="text-slate-400 text-sm font-medium">Alertas Críticas</span>
+                        <span class="bg-rose-500/10 text-rose-400 text-xs px-2 py-1 rounded font-bold animate-pulse">¡!]</span>
+                    </div>
+
+                    <p class="text-3xl font-bold mt-2 font-mono tracking-tight group-hover:text-rose-400 transition-colors">3</p>
+                </div>
+
+            </section>
+
+            <!-- TABLA DE PROCESOS EN SEGUNDO PLANO -->
+            <section class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden">
+                <div class="px-6 py-4 border-b border-slate-800 bg-slate-950/50 flex justify-between items-center">
+                    <h2 class="font-semibold text-slate-200">Procesos de Terminal Activos</h2>
+                    <span class="text-xs text-slate-500 font-mono">jobs -l</span>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+
+                        <thead>
+                            <tr class="bg-slate-900/50 text-slate-400 text-xs font-mono uppercase tracking-wider border-b border-slate-800">
+                                <th class="px-6 py-3">PID</th>
+                                <th class="px-6 py-3">Comando</th>
+                                <th class="px-6 py-3">Tiempo de Ejecución</th>
+                                <th class="px-6 py-3">Estado</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="divide-y divide-slate-800 text-sm font-mono">
+                            <tr class="hover:bg-slate-900/40 transition-colors">
+                                <td class="px-6 py-4 text-slate-400">#0931</td>
+                                <td class="px-6 py-4 text-emerald-400">./clima.sh --background</td>
+                                <td class="px-6 py-4">00:14:22</td>
+                                <td class="px-6 py-4"><span class="text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded text-xs">Running</span></td>
+                            </tr>
+                            <tr class="hover:bg-slate-900/40 transition-colors">
+                                <td class="px-6 py-4 text-slate-400">#1204</td>
+                                <td class="px-6 py-4 text-amber-400">git fetch origin main &</td>
+                                <td class="px-6 py-4">00:02:05</td>
+                                <td class="px-6 py-4"><span class="text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded text-xs">Background</span></td>
+                            </tr>
+                            <tr class="hover:bg-slate-900/40 transition-colors">
+                                <td class="px-6 py-4 text-slate-400">#4412</td>
+                                <td class="px-6 py-4 text-rose-400">ssh-add -K ~/.ssh/id_rsa_clon</td>
+                                <td class="px-6 py-4">00:00:10</td>
+                                <td class="px-6 py-4"><span class="text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded text-xs">Stopped</span></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
